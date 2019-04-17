@@ -1,14 +1,104 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#FF5722"
-    tools:context=".ui.StatusFragment">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="vertical">
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:padding="8dp">
+
+        <ImageView
+                android:id="@+id/imgbStatusPicture1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ic_avatar_jelly"/>
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="8dp">
+
+            <TextView
+                    android:id="@+id/txtStatusUserName1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/myStatus"
+                    android:textSize="17sp"
+                    android:textStyle="bold"/>
+
+            <TextView
+                    android:id="@+id/txtStatusDate1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/myStatusDescription"
+                    android:textSize="15sp"/>
+
+        </LinearLayout>
+    </LinearLayout>
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorTextBackground"
+            android:text="@string/recentUpdates"/>
 
-</FrameLayout>
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                 xmlns:tools="http://schemas.android.com/tools"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 tools:context=".ui.StatusFragment">
+
+        <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycStatusListRecent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+
+    </FrameLayout>
+
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorTextBackground"
+            android:text="@string/viewedUpdates"/>
+
+    <FrameLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:context=".ui.StatusFragment">
+
+        <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycStatusListViewed"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+    </FrameLayout>
+
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorTextBackground"
+            android:text="@string/mutedUpdates"/>
+
+    <FrameLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:context=".ui.StatusFragment">
+
+        <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycStatusListMuted"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+    </FrameLayout>
+
+</LinearLayout>

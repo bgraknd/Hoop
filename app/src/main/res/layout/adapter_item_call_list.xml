@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:gravity="center_vertical"
+              android:padding="8dp"
+              android:layout_marginRight="8dp"
+              android:layout_marginLeft="8dp">
+
+    <ImageView
+            android:id="@+id/imgbCallProfile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:background="@drawable/ic_avatar_jedi"/>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+        <TextView
+                android:id="@+id/txtCallUserName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                tools:text="Mehmet Karaaslan"/>
+
+        <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+            <ImageView
+                    android:id="@+id/imgbCallStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:background="@drawable/ic_call_received_green"/>
+
+            <TextView
+                    android:id="@+id/txtCallDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="15sp"
+                    tools:text="15 March 22:46"/>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <ImageView
+            android:id="@+id/imgbCallPicture"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:background="@drawable/ic_call_green"/>
+
+</LinearLayout>

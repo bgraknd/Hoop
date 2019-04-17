@@ -1,15 +1,13 @@
 package io.androidedu.hoop.ui
 
 import android.os.Bundle
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentTransaction
 import io.androidedu.hoop.R
-import kotlinx.android.synthetic.main.layout_tab.*
+import io.androidedu.hoop.adapter.HoopViewPagerAdapter
+import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity(), View.OnClickListener {
+class MainActivity : AppCompatActivity() {
 
     private val chatsFragment by lazy { ChatsFragment.newInstance() }
     private val statusFragment by lazy { StatusFragment.newInstance() }
@@ -20,61 +18,23 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        txtCalls.setOnClickListener(this)
-        txtChats.setOnClickListener(this)
-        txtStatus.setOnClickListener(this)
-        imgbCamera.setOnClickListener(this)
+        val fragmentList = ArrayList<Fragment>()
+        fragmentList.add(cameraFragment)
+        fragmentList.add(chatsFragment)
+        fragmentList.add(statusFragment)
+        fragmentList.add(callsFragment)
 
-        addFragment(R.id.frmContainer, chatsFragment)
+        val fragmentTitleList = ArrayList<String>()
+        fragmentTitleList.add("Camera")
+        fragmentTitleList.add("Chats")
+        fragmentTitleList.add("Status")
+        fragmentTitleList.add("Calls")
+
+        vpHoopContainer.adapter = HoopViewPagerAdapter(fragmentList, fragmentTitleList, supportFragmentManager)
+
+        tblLayHoopContainer.setupWithViewPager(vpHoopContainer)
+
+
     }
 
-    override fun onClick(v: View) {
-
-        when (v.id) {
-
-            R.id.txtCalls -> {
-
-                replaceFragment(R.id.frmContainer, callsFragment)
-            }
-
-            R.id.txtChats -> {
-
-                replaceFragment(R.id.frmContainer, chatsFragment)
-            }
-
-            R.id.txtStatus -> {
-
-                replaceFragment(R.id.frmContainer, statusFragment)
-            }
-
-            R.id.imgbCamera -> {
-
-                replaceFragment(R.id.frmContainer, cameraFragment)
-            }
-        }
-    }
-
-
-}
-
-inline fun FragmentManager.inTransaction(function: FragmentTransaction.() -> FragmentTransaction) {
-
-    beginTransaction().function().commit()
-}
-
-fun AppCompatActivity.addFragment(containerId: Int, fragment: Fragment) {
-
-    supportFragmentManager.inTransaction {
-
-        add(containerId, fragment)
-    }
-}
-
-
-fun AppCompatActivity.replaceFragment(containerId: Int, fragment: Fragment) {
-
-    supportFragmentManager.inTransaction {
-
-        replace(containerId, fragment)
-    }
 }
