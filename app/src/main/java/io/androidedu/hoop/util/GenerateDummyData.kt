@@ -1,8 +1,8 @@
 package io.androidedu.hoop.util
 
 import io.androidedu.hoop.R
+import io.androidedu.hoop.entity.ChatEntity
 import io.androidedu.hoop.model.CallModel
-import io.androidedu.hoop.model.ChatModel
 import io.androidedu.hoop.model.StatusModel
 
 
@@ -17,17 +17,17 @@ import io.androidedu.hoop.model.StatusModel
 
 object GenerateDummyData {
 
-    fun getDummyChatList(): ArrayList<ChatModel> = ArrayList<ChatModel>().apply {
+    fun getDummyChatList(): ArrayList<ChatEntity> = ArrayList<ChatEntity>().apply {
 
-        val chatModel = ChatModel(
-            R.drawable.ic_avatar_woodcutter,
-            "Bugra",
-            "Merhaba ben geldim",
-            "Yesterday"
+        val chatEntity = ChatEntity(
+            profilePhoto = R.drawable.ic_avatar_woodcutter,
+            userName = "Bugra",
+            userMessage = "Selam, naber?",
+            date = "Yesterday"
         )
 
         repeat(20) {
-            add(chatModel)
+            add(chatEntity)
         }
     }
 

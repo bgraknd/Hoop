@@ -6,7 +6,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import io.androidedu.hoop.R
-import io.androidedu.hoop.model.ChatModel
+import io.androidedu.hoop.entity.ChatEntity
 
 // Code with ❤️
 //┌─────────────────────────────┐
@@ -19,7 +19,10 @@ import io.androidedu.hoop.model.ChatModel
 
 class ChatListViewHolder(parent: ViewGroup)
 
-    : RecyclerView.ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.adapter_item_chat_list, parent, false)) {
+    : RecyclerView.ViewHolder(
+    LayoutInflater.from(parent.context)
+        .inflate(R.layout.adapter_item_chat_list, parent, false)
+) {
 
     private val imgProfile: ImageView
     private val txtUserName: TextView
@@ -34,16 +37,16 @@ class ChatListViewHolder(parent: ViewGroup)
         txtDate = itemView.findViewById(R.id.txtDate)
     }
 
-    fun bind(chatModel: ChatModel, onItemClickListener: (chatModel: ChatModel) -> Unit) {
+    fun bind(chatEntity: ChatEntity, onItemClickListener: (chatEntity: ChatEntity) -> Unit) {
 
-        imgProfile.setBackgroundResource(chatModel.profilePhoto)
-        txtUserName.text = chatModel.userName
-        txtUserMessage.text = chatModel.userMessage
-        txtDate.text = chatModel.date
+        imgProfile.setBackgroundResource(chatEntity.profilePhoto)
+        txtUserName.text = chatEntity.userName
+        txtUserMessage.text = chatEntity.userMessage
+        txtDate.text = chatEntity.date
 
         itemView.setOnClickListener {
 
-            onItemClickListener(chatModel)
+            onItemClickListener(chatEntity)
         }
     }
 }
